@@ -1,0 +1,20 @@
+{
+	"manifest_version": 2,
+	"name": "Viki Playrate",
+	"version": "0.1",
+	"icons": {
+		"128": "icon.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.viki.com/videos/*"
+			],
+			"js": ["content.js"]
+		}
+	],
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	}
+}
