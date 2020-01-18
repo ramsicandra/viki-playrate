@@ -1,4 +1,10 @@
-const video = document.getElementsByTagName('video')[0];
+function videoTag() {
+	return document.getElementsByTagName('video')[0];
+}
+
+function videoReady() {
+	return !!videoTag();
+}
 
 let noSubPlayrate = 3;
 let subPlayrate = 1;
@@ -17,10 +23,12 @@ function isSongSubtitle() {
 }
 
 function setPlayrate(rate) {
-	video.playbackRate = rate;
+	videoTag().playbackRate = rate;
 }
 
 function heartbeat() {
+	if (!videoReady()) return;
+
 	if(!isSubtitle() || isSongSubtitle()) {
 		setPlayrate(noSubPlayrate);
 	} else {
@@ -30,7 +38,7 @@ function heartbeat() {
 
 window.onload = function() {
 	setInterval(heartbeat);
-}
+};
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	noSubPlayrate = request.noSubPlayrate;

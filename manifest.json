@@ -8,7 +8,8 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"https://www.viki.com/videos/*"
+				"https://www.viki.com/videos/*",
+				"https://viki.com/videos/*"
 			],
 			"js": ["content.js"]
 		}
