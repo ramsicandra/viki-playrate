@@ -13,7 +13,7 @@ function getSubtitle() {
 }
 
 function isSongSubtitle() {
-	return getSubtitle().includes('♫');
+	return getSubtitle().includes('♫') || getSubtitle().includes('♬');
 }
 
 function setPlayrate(rate) {
